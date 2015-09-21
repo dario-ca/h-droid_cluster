@@ -1,0 +1,91 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1265\cocoasubrtf200
+{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww28600\viewh16520\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f0\fs28 \cf1 \cb0 \CocoaLigature0 root@phone2:/usr/local/hpl-2.1/bin/squeeze# mpirun -recvtimeout 2 -n 1 ./xhpl\
+================================================================================\
+HPLinpack 2.1  --  High-Performance Linpack benchmark  --   October 26, 2012\
+Written by A. Petitet and R. Clint Whaley,  Innovative Computing Laboratory, UTK\
+Modified by Piotr Luszczek, Innovative Computing Laboratory, UTK\
+Modified by Julien Langou, University of Colorado Denver\
+================================================================================\
+\
+An explanation of the input/output parameters follows:\
+T/V    : Wall time / encoded variant.\
+N      : The order of the coefficient matrix A.\
+NB     : The partitioning blocking factor.\
+P      : The number of process rows.\
+Q      : The number of process columns.\
+Time   : Time in seconds to solve the linear system.\
+Gflops : Rate of execution for solving the linear system.\
+\
+The following parameter values will be used:\
+\
+N      :    1000     2000     \
+NB     :     128      160 \
+PMAP   : Row-major process mapping\
+P      :       1 \
+Q      :       1 \
+PFACT  :   Right \
+NBMIN  :       4 \
+NDIV   :       2 \
+RFACT  :   Crout \
+BCAST  :   1ring \
+DEPTH  :       0 \
+SWAP   : Mix (threshold = 64)\
+L1     : transposed form\
+U      : transposed form\
+EQUIL  : yes\
+ALIGN  : 8 double precision words\
+\
+--------------------------------------------------------------------------------\
+\
+- The matrix A is randomly generated for each test.\
+- The following scaled residual check will be computed:\
+      ||Ax-b||_oo / ( eps * ( || x ||_oo * || A ||_oo + || b ||_oo ) * N )\
+- The relative machine precision (eps) is taken to be               1.110223e-16\
+- Computational tests pass if scaled residuals are less than                16.0\
+\
+================================================================================\
+T/V                N    NB     P     Q               Time                 Gflops\
+--------------------------------------------------------------------------------\
+WR00C2R4        1000   128     1     1             139.92              4.775e-03\
+HPL_pdgesv() start time Sun Jan  6 01:15:59 1980\
+\
+HPL_pdgesv() end time   Sun Jan  6 01:18:19 1980\
+\
+--------------------------------------------------------------------------------\
+||Ax-b||_oo/(eps*(||A||_oo*||x||_oo+||b||_oo)*N)=        0.0071234 ...... PASSED\
+================================================================================\
+T/V                N    NB     P     Q               Time                 Gflops\
+--------------------------------------------------------------------------------\
+WR00C2R4        1000   160     1     1             138.91              4.810e-03\
+HPL_pdgesv() start time Sun Jan  6 01:18:27 1980\
+\
+HPL_pdgesv() end time   Sun Jan  6 01:20:45 1980\
+\
+--------------------------------------------------------------------------------\
+||Ax-b||_oo/(eps*(||A||_oo*||x||_oo+||b||_oo)*N)=        0.0073048 ...... PASSED\
+================================================================================\
+T/V                N    NB     P     Q               Time                 Gflops\
+--------------------------------------------------------------------------------\
+WR00C2R4        2000   128     1     1            1111.61              4.803e-03\
+HPL_pdgesv() start time Sun Jan  6 01:21:02 1980\
+\
+HPL_pdgesv() end time   Sun Jan  6 01:39:34 1980\
+\
+--------------------------------------------------------------------------------\
+||Ax-b||_oo/(eps*(||A||_oo*||x||_oo+||b||_oo)*N)=        0.0056738 ...... PASSED\
+================================================================================\
+T/V                N    NB     P     Q               Time                 Gflops\
+--------------------------------------------------------------------------------\
+WR00C2R4        2000   160     1     1            1106.90              4.824e-03\
+HPL_pdgesv() start time Sun Jan  6 01:40:04 1980\
+\
+HPL_pdgesv() end time   Sun Jan  6 01:58:30 1980\
+\
+--------------------------------------------------------------------------------\
+||Ax-b||_oo/(eps*(||A||_oo*||x||_oo+||b||_oo)*N)=        0.0077898 ...... PASSED\
+}
